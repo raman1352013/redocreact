@@ -2,16 +2,19 @@
 import './App.css'
 import Login from './Login'
 import ApiDocs from './ApiDocs'
-import { Routes, Route } from "react-router-dom";
+
+import {  Routes, Route } from "react-router-dom";
 function App() {
 
 
   return (
    
-   <Routes>
+      <Routes>
       <Route path="/" element={<Login/>} />
-      <Route path="/home" element={<ApiDocs></ApiDocs>} />
+      <Route path="/apiDocs" element={<ApiDocs></ApiDocs>} />
     </Routes>
+   
+  
   )
 }
 

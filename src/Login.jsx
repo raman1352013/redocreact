@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import "./Login.css"; 
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
-
+  const navigate = useNavigate();
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -12,7 +13,16 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
-    // Add your login logic here
+    e.preventDefault();
+
+    // Simulate login logic
+    if (formData.email === "user" && formData.password === "user") {
+      console.log("Login successful");
+      navigate("/apiDocs"); // Navigate to apiDocs on successful login
+    } else {
+      console.log("Invalid credentials");
+      alert("Invalid email or password!");
+    }
   };
 
   return (
@@ -22,7 +32,7 @@ const Login = () => {
         <div className="form-group">
           <label htmlFor="email">Email</label>
           <input
-            type="email"
+            type="text"
             id="email"
             name="email"
             value={formData.email}
