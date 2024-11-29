@@ -13,12 +13,10 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
-    e.preventDefault();
-
-    // Simulate login logic
+   
     if (formData.email === "user" && formData.password === "user") {
       console.log("Login successful");
-      navigate("/apiDocs"); // Navigate to apiDocs on successful login
+      navigate("/apiDocs"); 
     } else {
       console.log("Invalid credentials");
       alert("Invalid email or password!");
