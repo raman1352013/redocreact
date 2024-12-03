@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-
+import './ApiDocs.css';
 const ApiDocs = () => {
   const [specData, setSpecData] = useState(null);
 
