@@ -2,17 +2,18 @@ import './App.css';
 import Login from './Login';
 import ApiDocs from './ApiDocs';
 
-import { Routes, Route} from "react-router-dom";
+import { Routes, Route ,Link} from "react-router-dom";
 
 function App() {
   return (
    
       <> 
-       
-      <Login></Login>
-        <p>This is app</p>
+        <nav>
+        <Link to="/">Login</Link> 
+      </nav>
+      
         <Routes>
-          
+          <Route path="/" element={<Login />} />
           <Route path="/apiDocs" element={<ApiDocs />} />
         </Routes>
       </>
