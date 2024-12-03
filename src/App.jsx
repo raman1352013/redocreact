@@ -11,7 +11,7 @@ function App() {
        <nav>
         <Link to="/">Login</Link> | <Link to="/apiDocs">API Docs</Link>
       </nav>
-        <p>This is app</p>
+      
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/apiDocs" element={<ApiDocs />} />
