@@ -4,9 +4,27 @@ const ApiDocs = () => {
   const [specData, setSpecData] = useState(null);
 
   // Function to load and parse the JSON spec file
-  const loadSpec = (specUrl) => {
-    console.log('Loading JSON spec from URL:', specUrl); // Log the URL being loaded
+  // const loadSpec = (specUrl) => {
+  //   console.log('Loading JSON spec from URL:', specUrl); // Log the URL being loaded
 
+  //   fetch(specUrl)
+  //     .then((response) => {
+  //       console.log('Response status:', response.status); // Log the response status
+  //       return response.json(); // Get JSON from the response
+  //     })
+  //     .then((jsonData) => {
+  //       console.log('Parsed JSON data:', jsonData); // Log the parsed JSON data
+  //       setSpecData(jsonData); // Set the parsed JSON to state
+  //     })
+  //     .catch((error) => {
+  //       console.error('Error loading JSON spec:', error); // Log any fetch errors
+  //     });
+  // };
+
+  const loadSpec = (specFileName) => {
+    const specUrl = `/redocvite/${specFileName}`; // Use the correct base path
+    console.log('Loading JSON spec from URL:', specUrl); // Log the URL being loaded
+  
     fetch(specUrl)
       .then((response) => {
         console.log('Response status:', response.status); // Log the response status
@@ -20,6 +38,7 @@ const ApiDocs = () => {
         console.error('Error loading JSON spec:', error); // Log any fetch errors
       });
   };
+  
 
   // Dynamically load the Redoc script into the page
   useEffect(() => {
@@ -37,7 +56,7 @@ const ApiDocs = () => {
   // Set default spec on load
   useEffect(() => {
     console.log('Component mounted, loading default spec');
-    loadSpec('/astroj.json'); // Load the default JSON file on initial load
+    loadSpec('astroj.json'); // Load the default JSON file on initial load
   }, []);
 
   const handleDropdownChange = (event) => {
@@ -74,9 +93,9 @@ const ApiDocs = () => {
 
       {/* Dropdown for selecting the JSON file */}
       <select id="dropdown" onChange={handleDropdownChange}>
-        <option value="/astroj.json">Astro</option>
-        <option value="/hp-agri.json">Agri</option>
-        <option value="/hpsamb.json">API 3</option>
+        <option value="astroj.json">Astro</option>
+        <option value="hp-agri.json">Agri</option>
+        <option value="hpsamb.json">API 3</option>
         {/* Add more options for additional JSON files */}
       </select>
 
